@@ -1,0 +1,161 @@
+for a in `ls others-robots`; do echo $a; parallel -n0 "./rgkit/run.py -H others-robots/$a robots/aaeBot6.py | sed -e 's/\[//g' -e 's/\]//g' | awk -F, -f wl.awk " ::: {1..50} |grep -iv "turn\|TypeError\|File\|cmd\|Traceback\|robot.is\|away\|escaping\|trying\|boom\|(\|attack\|suicide" |awk 'BEGIN{L=0;W=0}{if($1 ~ /Win/) W+=1; else if ($1 ~ /Lost/) L+=1}END{printf "Win:%s, Lost:%s. Ratio:%s\n",W,L, W/(W+L)}'; echo; done
+AggresiveSwarm.py
+Win:0, Lost:50. Ratio:0
+
+BeatsTapion.py
+Win:0, Lost:645. Ratio:0
+
+berserk_bot.py
+Win:0, Lost:50. Ratio:0
+
+BetterThanTheRest.py
+Win:0, Lost:50. Ratio:0
+
+BIT.py
+Win:0, Lost:50. Ratio:0
+
+BlackBetty.py
+Win:47, Lost:3. Ratio:0.94
+
+BullyCowardAttacker.py
+Win:3, Lost:47. Ratio:0.06
+
+Cate2OP.py
+Win:0, Lost:50. Ratio:0
+
+chasin_the_Trane.py
+Win:0, Lost:50. Ratio:0
+
+corners3.py
+Win:1, Lost:49. Ratio:0.02
+
+ddzialak2.py
+Win:0, Lost:50. Ratio:0
+
+DwarfDefender.py
+Win:0, Lost:50. Ratio:0
+
+kaboom.py
+Win:46, Lost:4. Ratio:0.92
+
+kamikaze112013.py
+Win:0, Lost:50. Ratio:0
+
+Killspree.py
+Win:1, Lost:49. Ratio:0.02
+
+Leroy_Jenkins_1.0.py
+Win:12, Lost:38. Ratio:0.24
+
+MightWinSometimes.py
+Win:0, Lost:50. Ratio:0
+
+patota.py
+Win:8, Lost:42. Ratio:0.16
+
+r1v2.py
+Win:3, Lost:47. Ratio:0.06
+
+robber_v0.1.py
+Win:1, Lost:49. Ratio:0.02
+
+Robbie.py
+Win:12, Lost:38. Ratio:0.24
+
+rowlake.py
+Win:0, Lost:50. Ratio:0
+
+schmosby.py
+Win:0, Lost:50. Ratio:0
+
+stupid.2.7.2.py
+Win:0, Lost:50. Ratio:0
+
+Sunguard.py
+Win:17, Lost:33. Ratio:0.34
+
+Waterlinie_2.4.py
+Win:0, Lost:50. Ratio:0
+
+
+===============================
+
+for a in `ls others-robots`; do echo $a; parallel -n0 "./rgkit/run.py -H others-robots/$a robots/aaeBot7.py | sed -e 's/\[//g' -e 's/\]//g' | awk -F, -f wl.awk " ::: {1..50} |grep -iv "turn\|TypeError\|File\|cmd\|Traceback\|robot.is\|away\|escaping\|trying\|boom\|(\|attack\|suicide" |awk 'BEGIN{L=0;W=0}{if($1 ~ /Win/) W+=1; else if ($1 ~ /Lost/) L+=1}END{printf "Win:%s, Lost:%s. Ratio:%s\n",W,L, W/(W+L)}'; echo; done
+AggresiveSwarm.py
+Win:0, Lost:50. Ratio:0
+
+BeatsTapion.py
+Win:2, Lost:598. Ratio:0.00333333
+
+berserk_bot.py
+Win:4, Lost:46. Ratio:0.08
+
+BetterThanTheRest.py
+Win:0, Lost:50. Ratio:0
+
+BIT.py
+Win:0, Lost:50. Ratio:0
+
+BlackBetty.py
+Win:49, Lost:1. Ratio:0.98
+
+BullyCowardAttacker.py
+Win:3, Lost:47. Ratio:0.06
+
+Cate2OP.py
+Win:2, Lost:48. Ratio:0.04
+
+chasin_the_Trane.py
+Win:0, Lost:50. Ratio:0
+
+corners3.py
+Win:19, Lost:31. Ratio:0.38
+
+ddzialak2.py
+Win:0, Lost:50. Ratio:0
+
+DwarfDefender.py
+Win:0, Lost:50. Ratio:0
+
+kaboom.py
+Win:50, Lost:0. Ratio:1
+
+kamikaze112013.py
+Win:0, Lost:50. Ratio:0
+
+Killspree.py
+Win:3, Lost:47. Ratio:0.06
+
+Leroy_Jenkins_1.0.py
+Win:28, Lost:22. Ratio:0.56
+
+MightWinSometimes.py
+Win:1, Lost:49. Ratio:0.02
+
+patota.py
+Win:24, Lost:26. Ratio:0.48
+
+r1v2.py
+Win:21, Lost:29. Ratio:0.42
+
+robber_v0.1.py
+Win:5, Lost:45. Ratio:0.1
+
+Robbie.py
+Win:3, Lost:47. Ratio:0.06
+
+rowlake.py
+Win:2, Lost:48. Ratio:0.04
+
+schmosby.py
+Win:1, Lost:49. Ratio:0.02
+
+stupid.2.7.2.py
+Win:0, Lost:50. Ratio:0
+
+Sunguard.py
+Win:24, Lost:26. Ratio:0.48
+
+Waterlinie_2.4.py
+Win:0, Lost:50. Ratio:0
+
