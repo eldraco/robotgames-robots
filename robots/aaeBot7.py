@@ -1,6 +1,14 @@
-# to check:
+# Hi arkamar!!!
+# This is the future bot7... so far there are no changes with respect to bot6.
+# Hi...
+
+# Hi ElDraco, I will begin my TODOs with AR.
+
+# In the new logic i would love not to go to the center, but to wait in the circle...
+# to change in the logic?:
 # elif game.robots[loc]['player_id'] != my_team and 'spawn' in rg.loc_types(loc):
-# elif game.robots[loc]['player_id'] != my_team and rg.dist(loc, rg.CENTER_POINT) > rg.dist(self.location, rg.CENTER_POINT)
+# elif game.robots[loc]['player_id'] != my_team and rg.wdist(loc, rg.CENTER_POINT) > rg.wdist(self.location, rg.CENTER_POINT)
+# TODO AR: instead of rg.dist function we should preffer rg.wdist because it works with manhattan distance which is better for this robots. OK wdist.
 
 import rg
 
@@ -8,6 +16,9 @@ class Robot:
     def act(self, game):
         my_team = self.player_id
         if 'spawn' in rg.loc_types(self.location):
+            # Store the position of the spawning point
+            self.spawn_loc = self.location
+            # Just move one place toward the center
             return ['move', rg.toward(self.location, rg.CENTER_POINT)]
         else:
             # Get the nearby locations
@@ -17,9 +28,16 @@ class Robot:
                 try:
                     robot_location = game.robots[loc]
                     # There is...
-                    # If it is our own robot, just move to the center one step. Stop moving when we reach the center.
-                    if game.robots[loc]['player_id'] == my_team and self.location != rg.CENTER_POINT:
+
+                    # TODO AR: there is problem. When robots from our team are near to each other
+                    # they start moving to the center. in late phases of game it will be more often.
+
+                    # If it is our own robot, just move to the center one step. If we are more than 1 distance from the spawning location, stop moving.
+                    # this is to avoid moving to the center.
+                    #if game.robots[loc]['player_id'] == my_team and self.location != rg.CENTER_POINT: 
+                    if game.robots[loc]['player_id'] == my_team and rg.wdist(self.location,self.spawn_loc) == 1:
                         return ['move', rg.toward(self.location, rg.CENTER_POINT)]
+                    # Just to take advantage of the situation, if there is an enemy near, attack it.
                     elif game.robots[loc]['player_id'] != my_team:
                         return ['attack', loc ]
                 except KeyError:
